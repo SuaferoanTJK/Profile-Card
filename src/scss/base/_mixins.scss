@@ -1,0 +1,31 @@
+@use 'variables' as v; 
+
+/** Media Queries **/
+@mixin mobile{
+    @media (max-width: v.$mobile){
+        @content;
+    }
+}
+@mixin tablet{
+    @media (min-width: v.$tablet){
+        @content;
+    }
+}
+@mixin desktop{
+    @media (min-width: v.$desktop){
+        @content;
+    }
+}
+
+@mixin bg($size){
+    background-image: url("../img/bg-pattern-top.svg"), url("../img/bg-pattern-bottom.svg"), linear-gradient(to bottom, v.$darkCyan 0% 100%);
+    background-repeat: no-repeat;
+    background-size: $size, $size, contain;
+    background-position: top calc((-1*$size)/2) left calc((-1*$size)/2), bottom calc((-1*$size)/2) right calc((-1*$size)/2), center;
+}
+@mixin bgCard{
+    background-image: url("../img/bg-pattern-card.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
